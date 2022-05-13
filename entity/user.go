@@ -15,8 +15,8 @@ var (
 )
 
 type User struct {
-	FirstName string `json:"first_name" valid:"required=true,min=2"`
-	LastName  string `json:"last_name" valid:"required=true,min=2"`
+	FirstName string `json:"first_name" valid:"required=true,min=64"`
+	LastName  string `json:"last_name" valid:"required=true,min=64"`
 	Email     string `json:"email" valid:"required=true,type=email,unique=true"`
 	Password  string `json:"password" valid:"required=true,type=alphanumber,min=6,max=16"`
 }
