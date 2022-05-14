@@ -1,15 +1,18 @@
 package main
 
 import (
-	"dev_test/apis"
-	"dev_test/engine"
+	"dev_test/model"
+	"dev_test/pkg"
+	"dev_test/routers"
+	"github.com/gin-gonic/gin"
 )
-
-func main() {
-	start := engine.New()
-	start.Post("/v1/signup", apis.Signup)
-	start.Post("/v1/signin", apis.Signin)
-	start.Get("/v1/profile", apis.Profile)
-	start.Post("/v1/profile/update", apis.ProfileUpdate)
-	start.Run(":8080")
+func init(){
+	db := pkg.InitMysql()
+	db.AutoMigrate(&model.User{})
+}
+func main(){
+	r := gin.New()
+	r.SetTrustedProxies([]string{"127.0.0.1"})
+	routers.NewGinRouter(r)
+	r.Run(":8080")
 }

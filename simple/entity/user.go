@@ -14,6 +14,7 @@ var (
 	Required ValidErr = errors.New("不能为空")
 )
 
+
 type User struct {
 	FirstName string `json:"first_name" valid:"required=true,min=64"`
 	LastName  string `json:"last_name" valid:"required=true,min=64"`
