@@ -9,7 +9,9 @@ import (
 
 func NewGinRouter(r *gin.Engine){
 	//
-	middleware.InitLogger()
+	if err :=middleware.InitLogger();err != nil{
+		panic(err)
+	}
 	r.Use(middleware.GinLogger())
 	r.Use(middleware.GinRecovery(true))
 

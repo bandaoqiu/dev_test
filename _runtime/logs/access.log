@@ -1,1 +1,3 @@
 {"level":"INFO","time":"2022-05-25T04:26:28.579+0800","caller":"middleware/zap.go:63","msg":"/v1/signup","status":400,"method":"POST","path":"/v1/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.0","errors":"","cost":0.0052104}
+{"level":"INFO","time":"2022-05-25T04:30:23.234+0800","caller":"middleware/zap.go:63","msg":"/v1/signup","status":400,"method":"POST","path":"/v1/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.0","errors":"","cost":0.0024423}
+{"level":"INFO","time":"2022-05-25T04:30:42.497+0800","caller":"middleware/zap.go:63","msg":"/v1/signup","status":400,"method":"POST","path":"/v1/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.0","errors":"","cost":0.0062906}

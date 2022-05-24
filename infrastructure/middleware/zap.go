@@ -23,7 +23,7 @@ func InitLogger() (err error) {
 	writeSyncer := getLogWriter(configx.Cfg.Log.FileName,configx.Cfg.Log.MaxSize,configx.Cfg.Log.MaxBackup,configx.Cfg.Log.MaxAge)
 	encoder := getEncoder()
 	var l = new(zapcore.Level)
-	
+
 	core := zapcore.NewCore(encoder, writeSyncer, l)
 
 	lg = zap.New(core, zap.AddCaller())
