@@ -17,6 +17,12 @@ type config struct {
 	App struct{
 		Port string
 	}
+	Log struct{
+		FileName string
+		MaxSize int
+		MaxBackup int
+		MaxAge int
+	}
 }
 var once sync.Once
 func getConf()*config{
@@ -43,6 +49,11 @@ func getConf()*config{
 		cfg.Redis.DB = vp.GetInt("database.redis.db")
 
 		cfg.App.Port = vp.GetString("app.port")
+
+		cfg.Log.FileName = vp.GetString("log.fileName")
+		cfg.Log.MaxAge = vp.GetInt("log.maxAge")
+		cfg.Log.MaxBackup = vp.GetInt("log.maxBackup")
+		cfg.Log.MaxSize = vp.GetInt("log.maxSize")
 
 	})
 	return &cfg

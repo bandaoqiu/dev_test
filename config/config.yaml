@@ -10,3 +10,8 @@ database:
 #应用
 app:
   port: :8080
+log:
+  filename: ./_runtime/logs/access.log
+  maxSize: 200
+  maxBackup: 200
+  maxAge: 100
