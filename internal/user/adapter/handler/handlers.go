@@ -28,6 +28,7 @@ func (t *User)Signup(ctx *gin.Context){
 		return
 	}
 	if err = cmd.AddUser();err!= nil{
+
 		pkg.Response(ctx,http.StatusBadRequest,err.Error(),nil)
 		return
 	}
