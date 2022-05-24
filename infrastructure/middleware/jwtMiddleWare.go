@@ -12,7 +12,7 @@ func Jwt()gin.HandlerFunc{
 		authHeader := ctx.Request.Header.Get("Authorization") // 获取请求头中的数据
 		if authHeader == "" {
 			ctx.JSON(http.StatusOK, gin.H{
-				"code": 2003,
+				"code": http.StatusBadRequest,
 				"msg":  "请求头中auth为空",
 			})
 			ctx.Abort()
@@ -21,7 +21,7 @@ func Jwt()gin.HandlerFunc{
 		parts := strings.SplitN(authHeader, " ", 2)
 		if !(len(parts) == 2 && parts[0] == "Bearer") {
 			ctx.JSON(http.StatusOK, gin.H{
-				"code": 2004,
+				"code": http.StatusBadRequest,
 				"msg":  "请求头中auth格式有误",
 			})
 			ctx.Abort()
@@ -30,7 +30,7 @@ func Jwt()gin.HandlerFunc{
 		mc, err := jwtx.ParseToken(parts[1])
 		if err != nil {
 			ctx.JSON(http.StatusOK, gin.H{
-				"code": 2005,
+				"code": http.StatusBadRequest,
 				"msg":  "无效的Token",
 			})
 			ctx.Abort()
